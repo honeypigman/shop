@@ -22,6 +22,7 @@ class Member(models.Model):
     password_change_date = models.DateTimeField(
         db_column="password_change_date",
         null=False,
+        auto_now=True,
         help_text="비밀번호 변경일"
     )
     active_code = models.CharField(

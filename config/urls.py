@@ -10,10 +10,16 @@ schema_view = get_schema_view(
     openapi.Info(
         title="Shop",
         default_version='0.0.1',
-        description="Shop",
+        description="""
+        Django Simple Shop
+        - 회원관리
+        - 주문관리
+        - 배송관리
+        - 현황관리
+        """,
         terms_of_service="",
-        contact=openapi.Contact(email="#"),
-        license=openapi.License(name="#"),
+        contact=openapi.Contact(email="honeypigman@gmail.com"),
+        license=openapi.License(name="honeypigman@gmail.com"),
     ),
     public=True,
     permission_classes=[permissions.AllowAny],
@@ -22,7 +28,6 @@ schema_view = get_schema_view(
 urlpatterns = [
     path(r'swagger(?P<format>\.json|\.yaml)', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path(r'swagger', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path(r'redoc', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc-v1'),
 
     # path('admin/', admin.site.urls),
     path('member/', include('member.urls')),
